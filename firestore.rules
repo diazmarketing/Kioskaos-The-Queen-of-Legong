@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /inventory/{itemId} {
+      // Anyone can see the stock count of a specific item
+      allow get: if true;
+      // Nobody can list all inventories or edit it via client (edited via Firebase Console only)
+      allow list, write: if false;
+    }
+
+    match /buyback_claims/{claimId} {
+      // All clients can read the claims collection to count how many spots are taken
+      allow read: if true;
+      // All clients can write a claim, no authentication needed for this marketing event's scope
+      allow create: if true;
+      // Do not allow them to update or delete someone else's claim
+      allow update, delete: if false;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Inventory": {
+      "title": "Inventory Item",
+      "description": "Stock tracking for an item",
+      "type": "object",
+      "properties": {
+        "stock": {
+          "type": "number",
+          "description": "The current remaining stock"
+        }
+      },
+      "required": ["stock"]
+    }
+  },
+  "firestore": {
+    "/inventory/{itemId}": {
+      "schema": {
+        "$ref": "#/entities/Inventory"
+      },
+      "description": "Stores realtime stock numbers. Only readable by clients."
+    }
+  }
+}
