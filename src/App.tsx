@@ -343,8 +343,6 @@ export default function App() {
                 src={ASSETS.FRONT_1}
                 alt="Tampilan Depan" 
                 onError={(e) => handleImgError(e, FALLBACKS.FRONT_1)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -365,8 +363,6 @@ export default function App() {
                 src={ASSETS.BACK_1}
                 alt="Tampilan Belakang" 
                 onError={(e) => handleImgError(e, FALLBACKS.BACK_1)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -386,8 +382,6 @@ export default function App() {
                 src={ASSETS.FRONT_2}
                 alt="Tampilan Depan" 
                 onError={(e) => handleImgError(e, FALLBACKS.FRONT_2)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -407,8 +401,6 @@ export default function App() {
                 src={ASSETS.BACK_2}
                 alt="Tampilan Belakang" 
                 onError={(e) => handleImgError(e, FALLBACKS.BACK_2)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -428,8 +420,6 @@ export default function App() {
                 src={ASSETS.FRONT_3}
                 alt="Tampilan Depan" 
                 onError={(e) => handleImgError(e, FALLBACKS.FRONT_3)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -449,8 +439,6 @@ export default function App() {
                 src={ASSETS.BACK_3}
                 alt="Tampilan Belakang" 
                 onError={(e) => handleImgError(e, FALLBACKS.BACK_3)}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
                 loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -559,8 +547,6 @@ export default function App() {
                   src={ASSETS.IG} 
                   alt="Instagram" 
                   onError={(e) => handleImgError(e, FALLBACKS.IG)}
-                  crossOrigin="anonymous"
-                  referrerPolicy="no-referrer"
                   className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
                 />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
@@ -571,8 +557,6 @@ export default function App() {
                   src={ASSETS.FB} 
                   alt="Facebook" 
                   onError={(e) => handleImgError(e, FALLBACKS.FB)}
-                  crossOrigin="anonymous"
-                  referrerPolicy="no-referrer"
                   className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
                 />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">kioskaos</span></span>
@@ -583,8 +567,6 @@ export default function App() {
                   src={ASSETS.TT} 
                   alt="TikTok" 
                   onError={(e) => handleImgError(e, FALLBACKS.TT)}
-                  crossOrigin="anonymous"
-                  referrerPolicy="no-referrer"
                   className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
                 />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
