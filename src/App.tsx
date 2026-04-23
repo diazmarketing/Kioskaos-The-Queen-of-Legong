@@ -9,16 +9,16 @@ import { Lock, Unlock, X } from 'lucide-react';
 import { db } from './lib/firebase';
 import { doc, collection, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Bundle images directly into the build for maximum reliability
-import imgFront1 from './assets/foto-depan-1.png';
-import imgBack1 from './assets/foto-belakang-1.png';
-import imgFront2 from './assets/foto-depan-2.png';
-import imgBack2 from './assets/foto-belakang-2.png';
-import imgFront3 from './assets/foto-depan-3.jpg';
-import imgBack3 from './assets/foto-belakang-3.jpg';
-import iconIG from './assets/Instagram-logo.png';
-import iconFB from './assets/Facebook-logo.png';
-import iconTT from './assets/tiktok-logo.png';
+// Solid external URLs to ensure 100% uptime and visibility on all devices (especially iPhone)
+const IMG_FRONT_1 = "https://i.postimg.cc/8cVk6jH8/foto-depan-1.png";
+const IMG_BACK_1 = "https://i.postimg.cc/hPZYhNMD/foto-belakang-1.png";
+const IMG_FRONT_2 = "https://i.postimg.cc/K8J8KGwq/foto-depan-2.png";
+const IMG_BACK_2 = "https://i.postimg.cc/hPZYhNMK/foto-belakang-2.png";
+const IMG_FRONT_3 = "https://i.postimg.cc/0NwFTZYK/99688bc3-7dab-47a8-954b-14b076bfc8a0.jpg";
+const IMG_BACK_3 = "https://i.postimg.cc/ZKsQ0XjS/foto-belakang-3.jpg";
+const ICON_IG = "https://i.postimg.cc/W13DjY1z/Instagram-logo.png";
+const ICON_FB = "https://i.postimg.cc/YC94kDCj/Facebook-logo.png";
+const ICON_TT = "https://i.postimg.cc/P5xLhV5C/tiktok-logo.png";
 
 export default function App() {
   const [isLocked, setIsLocked] = useState(true);
@@ -316,7 +316,7 @@ export default function App() {
             >
               {/* Gambar produk depan */}
               <img 
-                src={imgFront1}
+                src={IMG_FRONT_1}
                 alt="Tampilan Depan" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -334,7 +334,7 @@ export default function App() {
             >
               {/* Gambar produk belakang */}
               <img 
-                src={imgBack1}
+                src={IMG_BACK_1}
                 alt="Tampilan Belakang" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -351,7 +351,7 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={imgFront2}
+                src={IMG_FRONT_2}
                 alt="Tampilan Depan" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -368,7 +368,7 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={imgBack2}
+                src={IMG_BACK_2}
                 alt="Tampilan Belakang" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -385,7 +385,7 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={imgFront3}
+                src={IMG_FRONT_3}
                 alt="Tampilan Depan" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -402,7 +402,7 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={imgBack3}
+                src={IMG_BACK_3}
                 alt="Tampilan Belakang" 
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
@@ -507,17 +507,17 @@ export default function App() {
             
             <div className="flex flex-col gap-3">
               <a href="https://www.instagram.com/kioskaosbalinesia.ofc/" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={iconIG} alt="Instagram" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img src={ICON_IG} alt="Instagram" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
               </a>
               
               <a href="https://www.facebook.com/profile.php?id=61552872545508" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={iconFB} alt="Facebook" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img src={ICON_FB} alt="Facebook" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">kioskaos</span></span>
               </a>
               
               <a href="https://www.tiktok.com/@kioskaosbalinesia.ofc" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={iconTT} alt="TikTok" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img src={ICON_TT} alt="TikTok" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
               </a>
             </div>
