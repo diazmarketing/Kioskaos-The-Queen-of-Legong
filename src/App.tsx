@@ -9,16 +9,40 @@ import { Lock, Unlock, X } from 'lucide-react';
 import { db } from './lib/firebase';
 import { doc, collection, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Hashed Asset Strategy (Most reliable for Vercel + iPhone)
-import IMG_FRONT_1 from './assets/images/foto-depan-1.png';
-import IMG_BACK_1 from './assets/images/foto-belakang-1.png';
-import IMG_FRONT_2 from './assets/images/foto-depan-2.png';
-import IMG_BACK_2 from './assets/images/foto-belakang-2.png';
-import IMG_FRONT_3 from './assets/images/foto-depan-3.jpg';
-import IMG_BACK_3 from './assets/images/foto-belakang-3.jpg';
-import ICON_IG from './assets/images/Instagram-logo.png';
-import ICON_FB from './assets/images/Facebook-logo.png';
-import ICON_TT from './assets/images/tiktok-logo.png';
+// Strategi "Pasti Tampil" khusus iOS & Vercel
+// Kita gunakan URL absolut dari root domain untuk stabilitas maksimal di Safari
+const ASSETS = {
+  FRONT_1: "/foto-depan-1.png",
+  BACK_1: "/foto-belakang-1.png",
+  FRONT_2: "/foto-depan-2.png",
+  BACK_2: "/foto-belakang-2.png",
+  FRONT_3: "/foto-depan-3.jpg",
+  BACK_3: "/foto-belakang-3.jpg",
+  IG: "/Instagram-logo.png",
+  FB: "/Facebook-logo.png",
+  TT: "/tiktok-logo.png"
+};
+
+// URL Cadangan (CDN) jika server utama sedang "ngadat" di iPhone
+const FALLBACKS = {
+  FRONT_1: "https://i.postimg.cc/8cVk6jH8/foto-depan-1.png",
+  BACK_1: "https://i.postimg.cc/hPZYhNMD/foto-belakang-1.png",
+  FRONT_2: "https://i.postimg.cc/K8J8KGwq/foto-depan-2.png",
+  BACK_2: "https://i.postimg.cc/hPZYhNMK/foto-belakang-2.png",
+  FRONT_3: "https://i.postimg.cc/0NwFTZYK/99688bc3-7dab-47a8-954b-14b076bfc8a0.jpg",
+  BACK_3: "https://i.postimg.cc/ZKsQ0XjS/foto-belakang-3.jpg",
+  IG: "https://i.postimg.cc/W13DjY1z/Instagram-logo.png",
+  FB: "https://i.postimg.cc/YC94kDCj/Facebook-logo.png",
+  TT: "https://i.postimg.cc/P5xLhV5C/tiktok-logo.png"
+};
+
+// Fungsi sakti untuk menangani error gambar secara instan
+const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallbackUrl: string) => {
+  const target = e.target as HTMLImageElement;
+  if (target.src !== fallbackUrl) {
+    target.src = fallbackUrl;
+  }
+};
 
 export default function App() {
   const [isLocked, setIsLocked] = useState(true);
@@ -316,8 +340,12 @@ export default function App() {
             >
               {/* Gambar produk depan */}
               <img 
-                src={IMG_FRONT_1}
+                src={ASSETS.FRONT_1}
                 alt="Tampilan Depan" 
+                onError={(e) => handleImgError(e, FALLBACKS.FRONT_1)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -334,8 +362,12 @@ export default function App() {
             >
               {/* Gambar produk belakang */}
               <img 
-                src={IMG_BACK_1}
+                src={ASSETS.BACK_1}
                 alt="Tampilan Belakang" 
+                onError={(e) => handleImgError(e, FALLBACKS.BACK_1)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -351,8 +383,12 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={IMG_FRONT_2}
+                src={ASSETS.FRONT_2}
                 alt="Tampilan Depan" 
+                onError={(e) => handleImgError(e, FALLBACKS.FRONT_2)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -368,8 +404,12 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={IMG_BACK_2}
+                src={ASSETS.BACK_2}
                 alt="Tampilan Belakang" 
+                onError={(e) => handleImgError(e, FALLBACKS.BACK_2)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -385,8 +425,12 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={IMG_FRONT_3}
+                src={ASSETS.FRONT_3}
                 alt="Tampilan Depan" 
+                onError={(e) => handleImgError(e, FALLBACKS.FRONT_3)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -402,8 +446,12 @@ export default function App() {
               className="relative aspect-square bg-[#141414] border border-[#404040] flex items-center justify-center hover:border-[#C5A059]/40 transition-colors duration-500 overflow-hidden group will-change-[transform,opacity]"
             >
               <img 
-                src={IMG_BACK_3}
+                src={ASSETS.BACK_3}
                 alt="Tampilan Belakang" 
+                onError={(e) => handleImgError(e, FALLBACKS.BACK_3)}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+                loading="eager"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
@@ -507,17 +555,38 @@ export default function App() {
             
             <div className="flex flex-col gap-3">
               <a href="https://www.instagram.com/kioskaosbalinesia.ofc/" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={ICON_IG} alt="Instagram" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img 
+                  src={ASSETS.IG} 
+                  alt="Instagram" 
+                  onError={(e) => handleImgError(e, FALLBACKS.IG)}
+                  crossOrigin="anonymous"
+                  referrerPolicy="no-referrer"
+                  className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
+                />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
               </a>
               
               <a href="https://www.facebook.com/profile.php?id=61552872545508" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={ICON_FB} alt="Facebook" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img 
+                  src={ASSETS.FB} 
+                  alt="Facebook" 
+                  onError={(e) => handleImgError(e, FALLBACKS.FB)}
+                  crossOrigin="anonymous"
+                  referrerPolicy="no-referrer"
+                  className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
+                />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">kioskaos</span></span>
               </a>
               
               <a href="https://www.tiktok.com/@kioskaosbalinesia.ofc" target="_blank" rel="noreferrer" className="text-[8.5px] md:text-[10px] tracking-[1px] md:tracking-[2px] text-[#E5E5E5]/40 hover:text-[#C5A059] transition-all flex items-center justify-start group w-full">
-                <img src={ICON_TT} alt="TikTok" className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" />
+                <img 
+                  src={ASSETS.TT} 
+                  alt="TikTok" 
+                  onError={(e) => handleImgError(e, FALLBACKS.TT)}
+                  crossOrigin="anonymous"
+                  referrerPolicy="no-referrer"
+                  className="w-[12px] h-[12px] md:w-[14px] md:h-[14px] mr-3 opacity-30 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert-[.6] group-hover:sepia-[.6] group-hover:saturate-[5] group-hover:hue-rotate-[10deg] transition-all duration-300 object-contain" 
+                />
                 <span className="w-[110px] sm:w-[160px] md:w-[180px] text-left leading-none tracking-[1px] md:tracking-[2px]"><span className="hidden sm:inline">kioskaosbalinesia.ofc</span><span className="sm:hidden">@kioskaos</span></span>
               </a>
             </div>
