@@ -9,16 +9,18 @@ import { Lock, Unlock, X } from 'lucide-react';
 import { db } from './lib/firebase';
 import { doc, collection, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Solid external URLs to ensure 100% uptime and visibility on all devices (especially iPhone)
-const IMG_FRONT_1 = "https://i.postimg.cc/8cVk6jH8/foto-depan-1.png";
-const IMG_BACK_1 = "https://i.postimg.cc/hPZYhNMD/foto-belakang-1.png";
-const IMG_FRONT_2 = "https://i.postimg.cc/K8J8KGwq/foto-depan-2.png";
-const IMG_BACK_2 = "https://i.postimg.cc/hPZYhNMK/foto-belakang-2.png";
-const IMG_FRONT_3 = "https://i.postimg.cc/0NwFTZYK/99688bc3-7dab-47a8-954b-14b076bfc8a0.jpg";
-const IMG_BACK_3 = "https://i.postimg.cc/ZKsQ0XjS/foto-belakang-3.jpg";
-const ICON_IG = "https://i.postimg.cc/W13DjY1z/Instagram-logo.png";
-const ICON_FB = "https://i.postimg.cc/YC94kDCj/Facebook-logo.png";
-const ICON_TT = "https://i.postimg.cc/P5xLhV5C/tiktok-logo.png";
+// Zero-Failure Embedded Image Strategy
+import {
+  IMG_FRONT_1,
+  IMG_BACK_1,
+  IMG_FRONT_2,
+  IMG_BACK_2,
+  IMG_FRONT_3,
+  IMG_BACK_3,
+  ICON_IG,
+  ICON_FB,
+  ICON_TT
+} from './imageData';
 
 export default function App() {
   const [isLocked, setIsLocked] = useState(true);
