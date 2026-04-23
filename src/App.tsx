@@ -307,10 +307,7 @@ export default function App() {
               <img 
                 src="https://i.postimg.cc/8cVk6jH8/foto-depan-1.png" 
                 alt="Tampilan Depan" 
-                loading="lazy"
-                decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Depan</div>
@@ -328,10 +325,7 @@ export default function App() {
               <img 
                 src="https://i.postimg.cc/hPZYhNMD/foto-belakang-1.png" 
                 alt="Tampilan Belakang" 
-                loading="lazy"
-                decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Belakang</div>
@@ -351,7 +345,6 @@ export default function App() {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Depan</div>
@@ -371,7 +364,6 @@ export default function App() {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Belakang</div>
@@ -391,7 +383,6 @@ export default function App() {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Depan</div>
@@ -411,7 +402,6 @@ export default function App() {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-1000 transform-gpu"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 md:opacity-70 transform-gpu"></div>
               <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 text-[7.5px] sm:text-[9px] uppercase tracking-[2px] sm:tracking-[4px] text-[#C5A059] font-bold z-20">Tampilan Belakang</div>
