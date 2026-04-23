@@ -9,18 +9,16 @@ import { Lock, Unlock, X } from 'lucide-react';
 import { db } from './lib/firebase';
 import { doc, collection, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Zero-Failure Embedded Image Strategy
-import {
-  IMG_FRONT_1,
-  IMG_BACK_1,
-  IMG_FRONT_2,
-  IMG_BACK_2,
-  IMG_FRONT_3,
-  IMG_BACK_3,
-  ICON_IG,
-  ICON_FB,
-  ICON_TT
-} from './imageData';
+// Hashed Asset Strategy (Most reliable for Vercel + iPhone)
+import IMG_FRONT_1 from './assets/images/foto-depan-1.png';
+import IMG_BACK_1 from './assets/images/foto-belakang-1.png';
+import IMG_FRONT_2 from './assets/images/foto-depan-2.png';
+import IMG_BACK_2 from './assets/images/foto-belakang-2.png';
+import IMG_FRONT_3 from './assets/images/foto-depan-3.jpg';
+import IMG_BACK_3 from './assets/images/foto-belakang-3.jpg';
+import ICON_IG from './assets/images/Instagram-logo.png';
+import ICON_FB from './assets/images/Facebook-logo.png';
+import ICON_TT from './assets/images/tiktok-logo.png';
 
 export default function App() {
   const [isLocked, setIsLocked] = useState(true);
